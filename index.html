@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Media - Rasakan Kemudahan Mengelola Bisnis Anda</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#6B21A8',
+                            purpleDark: '#581c87',
+                            green: '#10B981',
+                            greenDark: '#059669',
+                            lightBg: '#F9FAFB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+               <!-- Logo Access Media di Navbar -->
+<a href="#home" class="flex items-center gap-3 group">
+    <!-- Ganti 'Logo.png.png' sesuai dengan nama file logo Anda -->
+    <img src="logo accesmedia.jpeg" alt="Logo Access Media" class="h-10 w-auto object-contain">
+    
+    <div class="flex flex-col">
+        <span class="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            ACCESS <span class="text-brand-purple dark:text-purple-400">MEDIA</span>
+        </span>
+        <span class="text-[10px] tracking-widest text-brand-green font-semibold uppercase">Software Solution</span>
+    </div>
+</a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-2 font-medium text-sm">
+                    <a href="#home" class="nav-btn px-4 py-2 rounded-full transition-all duration-200 text-brand-purple font-bold bg-purple-50 dark:bg-purple-950/50 dark:text-purple-300" data-target="home">Home</a>
+                    <a href="#tentang" class="nav-btn px-4 py-2 rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-50 dark:hover:bg-slate-800" data-target="tentang">Tentang</a>
+                    <a href="#layanan" class="nav-btn px-4 py-2 rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-50 dark:hover:bg-slate-800" data-target="layanan">Layanan</a>
+                    <a href="#aplikasi" class="nav-btn px-4 py-2 rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-50 dark:hover:bg-slate-800" data-target="aplikasi">Aplikasi</a>
+                    <a href="#klien" class="nav-btn px-4 py-2 rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-brand-purple hover:bg-gray-50 dark:hover:bg-slate-800" data-target="klien">Klien</a>
+                </nav>
+
+                <!-- Action & Theme Toggle -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#aplikasi" class="bg-brand-purple hover:bg-brand-purpleDark text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-brand-purple/20 transition-all transform hover:-translate-y-0.5">
+                        Temukan Aplikasi
+                    </a>
+                    <button id="themeToggle" type="button" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon text-lg" id="themeIcon"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-gray-700 dark:text-gray-200 hover:text-brand-purple p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 font-medium">
+            <a href="#home" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-brand-purple">Home</a>
+            <a href="#tentang" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-brand-purple">Tentang</a>
+            <a href="#layanan" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-brand-purple">Layanan</a>
+            <a href="#aplikasi" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-brand-purple">Aplikasi</a>
+            <a href="#klien" class="block py-2 text-gray-700 dark:text-gray-200 hover:text-brand-purple">Klien</a>
+            <a href="#aplikasi" class="block w-full text-center bg-brand-purple text-white py-2.5 rounded-xl font-semibold mt-4">Temukan Aplikasi</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-28 md:pt-40 md:pb-36 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop');">
+        <div class="absolute inset-0 z-0 bg-slate-950/80"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
+                Rasakan <span class="text-purple-300">kemudahan</span> mengelola <span class="text-emerald-400">bisnis</span> Anda
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+             <span class="font-semibold text-white">Access Media</span> menghadirkan aplikasi dan layanan  teknologi untuk membantu mengoptimalkan pekerjaan, menyederhanakan pengelolan bisnis, dan meningkatkan efisiensi opesiona.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#aplikasi" class="w-full sm:w-auto bg-brand-purple hover:bg-brand-purpleDark text-white px-8 py-3.5 rounded-full font-semibold shadow-lg shadow-purple-900/40 transition-all transform hover:-translate-y-0.5">
+                    Temukan Aplikasi
+                </a>
+                <a href="#tentang" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md px-8 py-3.5 rounded-full font-semibold transition-all">
+                    Pelajari Selengkapnya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN TENTANG ACCESS MEDIA -->
+    <section id="tentang" class="py-24 bg-gray-50 dark:bg-slate-900/60 border-y border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-brand-purple dark:text-purple-400 uppercase bg-purple-100 dark:bg-purple-950/60 px-3 py-1 rounded-full">Profil Perusahaan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4">Tentang Access Media</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Mengenal lebih dekat komitmen, latar belakang, dan visi kami dalam menghadirkan solusi teknologi informasi terpercaya bagi kemajuan bisnis Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-950/80 text-brand-purple dark:text-purple-300 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Latar Belakang</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                        Access Media hadir sebagai penyedia solusi perangkat lunak terpercaya yang berfokus membantu mengoptimalkan dan memudahkan operasional usaha klien di berbagai sektor secara modern dan terintegrasi.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-950/80 text-brand-green dark:text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Visi Perusahaan</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                        Menjadi perusahaan yang Bertumbuh, Sehat dan Terpercaya <span class="font-semibold text-brand-purple dark:text-purple-300">Bertumbuh, Sehat, dan Terpercaya</span> bagi seluruh mitra bisnis, instansi, dan masyarakat.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-950/80 text-brand-purple dark:text-purple-300 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Misi Perusahaan</h3>
+                    <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <span>Peningkatan julah konsumen yang menggunakan layanan perusahaan.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <span>Scale up perusahaan untuk memksimalkan layanan pad pelanggan.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <span>Mensejahterakan internal perusahaan  agar bisa memberi layanan terbaik.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN LAYANAN UTAMA -->
+    <section id="layanan" class="py-24 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-brand-green dark:text-emerald-400 uppercase bg-emerald-100 dark:bg-emerald-950/60 px-3 py-1 rounded-full">Pilar Solusi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4">Layanan Utama</h2>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    5 Pilar alur layanan unggulan Access Media untuk mendukung sistem informasi dan operasional bisnis Anda.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-2">
+                <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center w-full lg:w-1/5">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-950 text-brand-purple dark:text-purple-300 flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Developing</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Membangun aplikasi khusus untuk membantu segala bentuk kegiatan usaha mulai dari transaksi hingga penyediaan laporan.</p>
+                </div>
+
+                <div class="text-brand-purple/60 dark:text-purple-400 text-xl my-2 lg:my-0 transform rotate-90 lg:rotate-0 flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right animate-pulse"></i>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center w-full lg:w-1/5">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-950 text-brand-purple dark:text-purple-300 flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Consulting</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Membuka pintu konsultasi mengenai aplikasi yang cocok dan sesuai dengan kebutuhan kegiatan usaha Anda.</p>
+                </div>
+
+                <div class="text-brand-purple/60 dark:text-purple-400 text-xl my-2 lg:my-0 transform rotate-90 lg:rotate-0 flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right animate-pulse"></i>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center w-full lg:w-1/5">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-950 text-brand-purple dark:text-purple-300 flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Supporting</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Layanan bantuan telepon & remote jika klien mengalami kesulitan atau kendala agar cepat terselesaikan.</p>
+                </div>
+
+                <div class="text-brand-purple/60 dark:text-purple-400 text-xl my-2 lg:my-0 transform rotate-90 lg:rotate-0 flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right animate-pulse"></i>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center w-full lg:w-1/5">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-950 text-brand-purple dark:text-purple-300 flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Training</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Pelatihan penggunaan program aplikasi agar klien mahir mengoperasikan aplikasi secara maksimal.</p>
+                </div>
+
+                <div class="text-brand-purple/60 dark:text-purple-400 text-xl my-2 lg:my-0 transform rotate-90 lg:rotate-0 flex-shrink-0">
+                    <i class="fa-solid fa-chevron-right animate-pulse"></i>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center w-full lg:w-1/5">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-950 text-brand-purple dark:text-purple-300 flex items-center justify-center text-2xl mb-4 shadow-sm">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">Link & Data</h4>
+                    <p class="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">Layanan koneksi, integrasi jaringan, serta pengelolaan basis data antar sistem secara aman dan terstruktur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN PRODUK APLIKASI UNGGULAN -->
+    <section id="aplikasi" class="py-24 bg-gray-50 dark:bg-slate-900/60 border-t border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-widest text-brand-purple dark:text-purple-400 uppercase bg-purple-100 dark:bg-purple-950/60 px-3 py-1 rounded-full">Katalog Software</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4">Produk Aplikasi Unggulan</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Berbagai pilihan solusi sistem informasi spesifik yang siap membantu mempermudah pencatatan, kasir, persediaan, dan operasional bisnis Anda.
+                </p>
+            </div>
+
+            <!-- Form Pencarian Aplikasi -->
+            <form id="applicationSearchForm" class="max-w-xl mx-auto mb-10 flex flex-col sm:flex-row gap-3" role="search" onsubmit="return false;">
+                <div class="relative flex-1">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input id="applicationSearchInput" type="search" placeholder="Cari nama aplikasi (misal: Meubel, Petshop, Bengkel)..." class="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all">
+                </div>
+            </form>
+
+            <p id="applicationSearchEmpty" class="hidden mb-8 text-center text-sm text-gray-500 dark:text-gray-400" role="status">Aplikasi tidak ditemukan. Coba gunakan kata kunci pencarian yang lain.</p>
+
+            <!-- Grid Kartu Aplikasi -->
+            <div id="applicationTrack" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <button type="button" data-app="meubel" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-shop"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Toko Meubel</span>
+                </button>
+
+                <button type="button" data-app="petshop" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-paw"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Petshop</span>
+                </button>
+
+                <button type="button" data-app="bengkel" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-motorcycle"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Bengkel Motor</span>
+                </button>
+
+                <button type="button" data-app="body-repair" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-car-burst"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Body Repair</span>
+                </button>
+
+                <button type="button" data-app="bangunan" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-trowel-bricks"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Toko Bangunan</span>
+                </button>
+
+                <button type="button" data-app="minimarket" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-store"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Mini Market</span>
+                </button>
+
+                <button type="button" data-app="grosir" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-warehouse"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Depo / Grosir</span>
+                </button>
+
+                <button type="button" data-app="distributor-buku" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Distributor Buku</span>
+                </button>
+
+                <button type="button" data-app="keuangan-yayasan" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Keuangan Yayasan</span>
+                </button>
+
+                <button type="button" data-app="farmasi" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Farmasi</span>
+                </button>
+
+                <button type="button" data-app="penggajian" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-money-check-dollar"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Gaji & Penggajian</span>
+                </button>
+
+                <button type="button" data-app="toko-komputer" class="app-card w-full text-left bg-white dark:bg-slate-800 p-5 rounded-2xl border border-gray-200/80 dark:border-slate-700/80 flex items-center gap-4 hover:border-brand-green hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-purple transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-brand-green dark:text-emerald-400 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform"><i class="fa-solid fa-laptop"></i></div>
+                    <span class="font-bold text-gray-800 dark:text-gray-100 text-sm">Aplikasi Toko Komputer</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+  <!-- BAGIAN KLIEN & MITRA KAMI (BERGERAK DENGAN FOTO/LOGO) -->
+<section id="klien" class="py-24 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="text-xs font-bold tracking-widest text-brand-green dark:text-emerald-400 uppercase bg-emerald-100 dark:bg-emerald-950/60 px-3 py-1 rounded-full">Kepercayaan Klien</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mt-3 mb-4">Klien & Mitra Kami</h2>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Dipercaya oleh instansi pemerintah, lembaga pendidikan, pesantren, serta berbagai pelaku usaha.
+            </p>
+        </div>
+    </div>
+
+    <!-- Container Marquee Berjalan -->
+    <div class="relative w-full overflow-hidden py-4">
+        
+        <!-- Efek Gradasi Sisi Kiri & Kanan -->
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none"></div>
+
+        <!-- Track Animasi Bergerak -->
+        <div class="animate-marquee flex gap-6 items-center">
+            
+            <!-- --- SET KLIEN PERTAMA --- -->
+            <div class="flex gap-6 items-center flex-shrink-0">
+                
+                <!-- Klien 1: Dinas Kesehatan -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="dinkes.png" alt="Dinas Kesehatan Subang" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">Dinas Kesehatan Kab. Subang</span>
+                </div>
+
+                <!-- Klien 2: BLUD Kab. Subang -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="bld subang.png" alt="BLUD Kabupaten Subang" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">BLUD Kabupaten Subang</span>
+                </div>
+
+                <!-- Klien 3: LPT Saraswati -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="lpt saraswati.png" alt="LPT Saraswati" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">LPT Saraswati</span>
+                </div>
+
+                <!-- Klien 4: ABM Computer -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="abm.png" alt="ABM Computer" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">ABM Computer</span>
+                </div>
+
+                <!-- Klien 5: Pontren Al-Hasan Ciamis -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="alhasan.jpg" alt="Pontren Al-Hasan Ciamis" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">Pontren Al-Hasan Ciamis</span>
+                </div>
+
+                <!-- Klien 6: BMT Al-Muhajirin -->
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="almuhajirin.png" alt="BMT Al-Muhajirin" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">BMT Al-Muhajirin</span>
+                </div>
+
+            </div>
+
+            <!-- --- DUPLIKASI SET KLIEN (UNTUK LOOPING ANIMASI BERGERAK MULUS) --- -->
+            <div class="flex gap-6 items-center flex-shrink-0" aria-hidden="true">
+                
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="dinkes.png" alt="Dinas Kesehatan Subang" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">Dinas Kesehatan Kab. Subang</span>
+                </div>
+
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="blud.png" alt="BLUD Kabupaten Subang" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">BLUD Kabupaten Subang</span>
+                </div>
+
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="lpt.png" alt="LPT Saraswati" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">LPT Saraswati</span>
+                </div>
+
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="abm.png" alt="ABM Computer" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">ABM Computer</span>
+                </div>
+
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="alhasan.png" alt="Pontren Al-Hasan Ciamis" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">Pontren Al-Hasan Ciamis</span>
+                </div>
+
+                <div class="w-64 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-gray-100 dark:border-slate-700 flex items-center gap-4 shadow-sm">
+                    <div class="w-14 h-14 bg-gray-50 dark:bg-slate-700 rounded-xl p-2 flex items-center justify-center flex-shrink-0 border border-gray-100 dark:border-slate-600">
+                        <img src="bmt.png" alt="BMT Al-Muhajirin" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-bold text-gray-800 dark:text-gray-200 leading-tight">BMT Al-Muhajirin</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section> 
+
+    <!-- Dialog Modal Aplikasi -->
+    <dialog id="applicationDialog" aria-labelledby="applicationDialogTitle" class="w-[calc(100%-2rem)] max-w-2xl rounded-3xl p-0 shadow-2xl bg-white dark:bg-slate-800 dark:text-white backdrop:bg-slate-900/60 transition-all border border-gray-100 dark:border-slate-700">
+        <div class="p-6 sm:p-8">
+            <div class="flex items-start justify-between gap-4 mb-5">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-green dark:text-emerald-400 mb-1 block">Detail Software</span>
+                    <h2 id="applicationDialogTitle" class="text-2xl font-bold text-gray-900 dark:text-white"></h2>
+                </div>
+                <button type="button" id="closeApplicationDialog" aria-label="Tutup detail aplikasi" class="shrink-0 w-10 h-10 rounded-full text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+            <p id="applicationDialogDescription" class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm"></p>
+            <div>
+                <h3 class="font-bold text-gray-900 dark:text-white mb-3 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-users text-brand-purple dark:text-purple-400"></i> Contoh Pengguna & Penerapan
+                </h3>
+                <p id="applicationDialogEmpty" class="hidden text-sm text-gray-500"></p>
+                <ul id="applicationDialogUsers" class="grid sm:grid-cols-2 gap-2 text-xs text-gray-600 dark:text-gray-300"></ul>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Footer / Bagian Bawah Website -->
+    <footer class="bg-slate-950 text-gray-300 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12 pb-12 border-b border-slate-800">
+                
+                <!-- Kolom 1: Logo & Deskripsi Singkat -->
+                <div class="space-y-4">
+                    <a href="#home" class="flex items-center gap-3">
+                        <!-- Logo Access Media di Footer -->
+                        <img src="logo accesmedia.jpeg" alt="Logo Access Media" class="h-10 w-auto object-contain bg-white p-1 rounded-lg">
+                        
+                        <div class="flex flex-col">
+                            <span class="text-xl font-extrabold tracking-tight text-white">
+                                ACCESS <span class="text-brand-purple">MEDIA</span>
+                            </span>
+                            <span class="text-[10px] tracking-widest text-brand-green font-semibold uppercase">Software Solution</span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Penyedia solusi perangkat lunak dan sistem informasi terpercaya untuk membantu operasional serta kemajuan bisnis Anda secara terintegrasi.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Alamat Kantor -->
+                <div>
+                    <h3 class="text-white font-bold text-base mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-brand-green"></i> Alamat Kantor
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Jl. Noennoeng Tisnasaputra, Kahuripan, Kec. Tawang, Tasikmalaya, Jawa Barat 46115
+                    </p>
+                </div>
+
+                <!-- Kolom 3: Hubungi Kami -->
+                <div>
+                    <h3 class="text-white font-bold text-base mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-brand-green"></i> Hubungi Kami
+                    </h3>
+                    <p class="text-sm text-gray-400 mb-3">Layanan Konsultasi & Informasi WhatsApp:</p>
+                    <a href="https://wa.me/6285220419992" target="_blank" class="inline-flex items-center gap-3 bg-brand-green hover:bg-emerald-600 text-white text-sm font-bold px-5 py-3 rounded-2xl transition-all shadow-lg shadow-emerald-900/30">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> 085220419992
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bawah -->
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Access Media (accessmedia.co.id). All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#tentang" class="hover:text-white transition-colors">Tentang</a>
+                    <a href="#layanan" class="hover:text-white transition-colors">Layanan</a>
+                    <a href="#aplikasi" class="hover:text-white transition-colors">Aplikasi</a>
+                    <a href="#klien" class="hover:text-white transition-colors">Klien</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+              

@@ -1,0 +1,20 @@
+/* Animasi Bergerak Menyamping untuk Klien */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+/* Jeda animasi saat kursor mouse diarahkan ke logo (opsional) */
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
